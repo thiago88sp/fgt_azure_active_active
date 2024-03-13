@@ -17,8 +17,7 @@ This Azure ARM template will automatically deploy a full working environment con
 * (Optional) 1 public IP for services and FortiGate management
 * User Defined Routes (UDR) for the protected subnets when deployed in a new VNET
 
-![image](https://github.com/thiago88sp/fgt_azure_active_passive/assets/54182968/fed52167-7ccf-49d6-a847-3faea3118d3d)
-
+![image](https://github.com/thiago88sp/fgt_azure_active_active/assets/54182968/2a43a171-1497-4d8e-bd39-e88be1a36cda)
 
 
 Example of the following link: https://github.com/fortinet/azure-templates/tree/main/FortiGate/Active-Passive-ELB-ILB
