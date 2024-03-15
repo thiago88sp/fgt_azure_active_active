@@ -40,15 +40,18 @@ variable "privatecidr" {
 
 variable "port1gateway" {
   default = "172.18.10.1"
+  description = "Public subnet gateway IP."
 }
 
 variable "port2gateway" {
   default = "172.18.10.65"
+  description = "Private subnet gateway IP."
 }
 
 variable "adminsport" {
   type    = string
   default = "8443"
+  description = "Fortigate administration port."
 }
 
 // NIC - Active VM
@@ -145,11 +148,11 @@ variable "bootstrap-active" {
   description = "Configuration file for the 'Active' Fortigate."
 }
 
-variable "bootstrap-passive" {
+variable "bootstrap-active2" {
   // Change to your own path
   type    = string
   default = "fgtvmb-active.conf"
-  description = "Configuration file for the 'Passive' Fortigate."
+  description = "Configuration file for the 'Active2' Fortigate."
 }
 
 // License Type to create FortiGate-VM

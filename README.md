@@ -91,9 +91,9 @@ No modules.
 | <a name="input_activeport2mask"></a> [activeport2mask](#input\_activeport2mask) | NIC netmask 'trusted'. | `string` | `"255.255.255.192"` | no |
 | <a name="input_admin_password"></a> [admin\_password](#input\_admin\_password) | Fortigate access password | `string` | `"Passw0rd"` | no |
 | <a name="input_admin_username"></a> [admin\_username](#input\_admin\_username) | Fortigate access user | `string` | `"tsp"` | no |
-| <a name="input_adminsport"></a> [adminsport](#input\_adminsport) | n/a | `string` | `"8443"` | no |
+| <a name="input_adminsport"></a> [adminsport](#input\_adminsport) | Fortigate administration port. | `string` | `"8443"` | no |
 | <a name="input_bootstrap-active"></a> [bootstrap-active](#input\_bootstrap-active) | Configuration file for the 'Active' Fortigate. | `string` | `"fgtvma-active.conf"` | no |
-| <a name="input_bootstrap-passive"></a> [bootstrap-passive](#input\_bootstrap-passive) | Configuration file for the 'Passive' Fortigate. | `string` | `"fgtvmb-active.conf"` | no |
+| <a name="input_bootstrap-active2"></a> [bootstrap-active2](#input\_bootstrap-active2) | Configuration file for the 'Active2' Fortigate. | `string` | `"fgtvmb-active.conf"` | no |
 | <a name="input_client_id"></a> [client\_id](#input\_client\_id) | n/a | `any` | n/a | yes |
 | <a name="input_client_secret"></a> [client\_secret](#input\_client\_secret) | n/a | `any` | n/a | yes |
 | <a name="input_disk_size_gb"></a> [disk\_size\_gb](#input\_disk\_size\_gb) | Specifies the size of the managed disk to create in gigabytes | `number` | `"64"` | no |
@@ -105,8 +105,8 @@ No modules.
 | <a name="input_license2"></a> [license2](#input\_license2) | license file for the active2 fgt | `string` | `"license2.txt"` | no |
 | <a name="input_license_type"></a> [license\_type](#input\_license\_type) | License Type to create FortiGate-VM Provide the license type for FortiGate-VM Instances. | `string` | `"byol"` | no |
 | <a name="input_location"></a> [location](#input\_location) | Location where resources will be placed | `string` | `"eastus"` | no |
-| <a name="input_port1gateway"></a> [port1gateway](#input\_port1gateway) | n/a | `string` | `"172.18.10.1"` | no |
-| <a name="input_port2gateway"></a> [port2gateway](#input\_port2gateway) | n/a | `string` | `"172.18.10.65"` | no |
+| <a name="input_port1gateway"></a> [port1gateway](#input\_port1gateway) | Public subnet gateway IP. | `string` | `"172.18.10.1"` | no |
+| <a name="input_port2gateway"></a> [port2gateway](#input\_port2gateway) | Private subnet gateway IP. | `string` | `"172.18.10.65"` | no |
 | <a name="input_privatecidr"></a> [privatecidr](#input\_privatecidr) | Private subnet address space | `string` | `"172.18.10.64/26"` | no |
 | <a name="input_publiccidr"></a> [publiccidr](#input\_publiccidr) | Public subnet address space | `string` | `"172.18.10.0/26"` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group Name | `string` | `"rsg-tsp-act-act"` | no |
