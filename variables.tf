@@ -56,10 +56,12 @@ variable "adminsport" {
 variable "activeport1" {
   default = "172.18.10.4"
   description = "NIC 'untrust' private address."
+
 }
 
 variable "activeport1mask" {
   default = "255.255.255.192"
+  description = "NIC netmask 'untrusted'."
 }
 
 variable "activeport2" {
@@ -69,24 +71,7 @@ variable "activeport2" {
 
 variable "activeport2mask" {
   default = "255.255.255.192"
-}
-
-variable "activeport3" {
-  default = "172.18.10.196"
-  description = "Private HA address for the NIC."
-}
-
-variable "activeport3mask" {
-  default = "255.255.255.192"
-}
-
-variable "activeport4" {
-  default = "172.18.10.133"
-  description = "Private MGMT address for the NIC."
-}
-
-variable "activeport4mask" {
-  default = "255.255.255.192"
+  description = "NIC netmask 'trusted'."
 }
 
 
@@ -99,6 +84,7 @@ variable "fgtvm2port1" {
 
 variable "fgtvm2port1mask" {
   default = "255.255.255.192"
+  description = "NIC netmask 'untrusted'."
 }
 
 variable "fgtvm2port2" {
@@ -108,26 +94,8 @@ variable "fgtvm2port2" {
 
 variable "fgtvm2port2mask" {
   default = "255.255.255.192"
+  description = "NIC netmask 'trusted'."
 }
-
-variable "fgtvm2port3" {
-  default = "172.18.10.197"
-  description = "Private HA address for the NIC."
-}
-
-variable "fgtvm2port3mask" {
-  default = "255.255.255.192"
-}
-
-variable "fgtvm2port4" {
-  default = "172.18.10.134"
-  description = "Private MGMT address for the NIC."
-}
-
-variable "fgtvm2port4mask" {
-  default = "255.255.255.192"
-}
-
 
 ###########################################################################################
 #                                 Virtual machine variables                               #
@@ -139,20 +107,27 @@ variable "fgtvm2port4mask" {
 variable "admin_username" {
   type        = string
   default     = "tsp"
-  description = "Password to VMSS"
+  description = "Fortigate access user"
 }
 
 variable "admin_password" {
   type        = string
   default     = "Passw0rd"
-  description = "Password to VMSS"
+  description = "Fortigate access password"
 }
 
 // VM Settings
 
+variable "storage_account_type" {
+  type    = string
+  default = "Premium_LRS"
+  description = "Storage type chosen for the managed disk."
+}
+
 variable "size" {
   type    = string
   default = "Standard_DS3_v2"
+  description = "Virtual machine SKU."
 }
 
 variable "disk_size_gb" {
@@ -167,18 +142,21 @@ variable "bootstrap-active" {
   // Change to your own path
   type    = string
   default = "fgtvma-active.conf"
+  description = "Configuration file for the 'Active' Fortigate."
 }
 
 variable "bootstrap-passive" {
   // Change to your own path
   type    = string
   default = "fgtvmb-active.conf"
+  description = "Configuration file for the 'Passive' Fortigate."
 }
 
 // License Type to create FortiGate-VM
 // Provide the license type for FortiGate-VM Instances.
 variable "license_type" {
   default = "byol"
+  description = "License Type to create FortiGate-VM Provide the license type for FortiGate-VM Instances."
 }
 
 // license file for the active fgt
@@ -186,10 +164,12 @@ variable "license" {
   // Change to your own byol license file, license.lic
   type    = string
   default = "license.txt"
+  description = "license file for the active1 fgt"
 }
 
 variable "license2" {
   // Change to your own byol license file, license.lic
   type    = string
   default = "license2.txt"
+  description = "license file for the active2 fgt"
 }

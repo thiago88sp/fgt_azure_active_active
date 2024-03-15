@@ -86,7 +86,7 @@ resource "azurerm_managed_disk" "res-2" {
   location             = var.location
   name                 = "FGT-Customer02_disk2"
   resource_group_name  = azurerm_resource_group.res-0.name
-  storage_account_type = "Premium_LRS"
+  storage_account_type = var.storage_account_type
   disk_size_gb         = var.disk_size_gb
 
   tags = {
