@@ -36,22 +36,22 @@ resource "azurerm_linux_virtual_machine" "activefgtvm1" {
   }
 
   custom_data = base64encode(templatefile("${var.bootstrap-active}", {
-    type            = var.license_type,
-    license_file    = var.license,
-    port1_ip        = var.activeport1,
-    port1_mask      = var.activeport1mask,
-    port2_ip        = var.activeport2,
-    port2_mask      = var.activeport2mask,
-    defaultgwy      = var.port1gateway,
-    trust_gw        = var.port2gateway,
-    tenant          = var.tenant_id,
-    subscription    = var.subscription_id,
-    clientid        = var.client_id,
-    clientsecret    = var.client_secret,
-    adminsport      = var.adminsport,
-    rsg             = azurerm_resource_group.res-0.name,
-    clusterip       = azurerm_public_ip.ClusterPublicIP.name,
-    routename       = azurerm_route_table.internal.name
+    type         = var.license_type,
+    license_file = var.license,
+    port1_ip     = var.activeport1,
+    port1_mask   = var.activeport1mask,
+    port2_ip     = var.activeport2,
+    port2_mask   = var.activeport2mask,
+    defaultgwy   = var.port1gateway,
+    trust_gw     = var.port2gateway,
+    tenant       = var.tenant_id,
+    subscription = var.subscription_id,
+    clientid     = var.client_id,
+    clientsecret = var.client_secret,
+    adminsport   = var.adminsport,
+    rsg          = azurerm_resource_group.res-0.name,
+    clusterip    = azurerm_public_ip.ClusterPublicIP.name,
+    routename    = azurerm_route_table.internal.name
   }))
 
   depends_on = [
@@ -72,12 +72,12 @@ resource "azurerm_managed_disk" "res-1" {
   tags = {
     Source = "terraform"
   }
-  zone = "1"
-  depends_on = [ azurerm_resource_group.res-0 ]
+  zone       = "1"
+  depends_on = [azurerm_resource_group.res-0]
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "res-4" {
-  caching            = "None"
+  caching = "None"
   #create_option      = "Empty"
   lun                = 0
   managed_disk_id    = azurerm_managed_disk.res-1.id

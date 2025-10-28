@@ -81,7 +81,7 @@ resource "azurerm_lb_probe" "externalLB-rule-probe" {
   loadbalancer_id = azurerm_lb.externalLB.id
   name            = "lbprobe"
   protocol        = "Http"
-  request_path        = "/"
+  request_path    = "/"
   port            = 8008
 }
 
@@ -160,7 +160,7 @@ resource "azurerm_lb_probe" "internalLB-rule-probe" {
   loadbalancer_id = azurerm_lb.internalLB.id
   name            = "lbprobe"
   protocol        = "Http"
-  request_path        = "/"
+  request_path    = "/"
   port            = 8008
 }
 
@@ -183,11 +183,11 @@ resource "azurerm_lb_rule" "internalLB-rule" {
 // VM Active
 
 resource "azurerm_network_interface" "activeport1" {
-  enable_accelerated_networking = true
-  enable_ip_forwarding          = true
-  location                      = var.location
-  name                          = "FGT-Customer01-Nic1"
-  resource_group_name           = azurerm_resource_group.res-0.name
+  accelerated_networking_enabled = true
+  ip_forwarding_enabled          = true
+  location                       = var.location
+  name                           = "FGT-Customer01-Nic1"
+  resource_group_name            = azurerm_resource_group.res-0.name
   tags = {
     Source = "terraform"
   }
@@ -205,11 +205,11 @@ resource "azurerm_network_interface" "activeport1" {
 }
 
 resource "azurerm_network_interface" "activeport2" {
-  enable_accelerated_networking = true
-  enable_ip_forwarding          = true
-  location                      = var.location
-  name                          = "FGT-Customer01-Nic2"
-  resource_group_name           = azurerm_resource_group.res-0.name
+  accelerated_networking_enabled = true
+  ip_forwarding_enabled          = true
+  location                       = var.location
+  name                           = "FGT-Customer01-Nic2"
+  resource_group_name            = azurerm_resource_group.res-0.name
   tags = {
     Source = "terraform"
   }
@@ -228,11 +228,11 @@ resource "azurerm_network_interface" "activeport2" {
 // VM Passive
 
 resource "azurerm_network_interface" "fgtvm2port1" {
-  enable_accelerated_networking = true
-  enable_ip_forwarding          = true
-  location                      = var.location
-  name                          = "FGT-Customer02-Nic1"
-  resource_group_name           = azurerm_resource_group.res-0.name
+  accelerated_networking_enabled = true
+  ip_forwarding_enabled          = true
+  location                       = var.location
+  name                           = "FGT-Customer02-Nic1"
+  resource_group_name            = azurerm_resource_group.res-0.name
   tags = {
     Source = "terraform"
   }
@@ -241,7 +241,7 @@ resource "azurerm_network_interface" "fgtvm2port1" {
     subnet_id                     = azurerm_subnet.publicsubnet.id
     private_ip_address_allocation = "Static"
     private_ip_address            = var.fgtvm2port1
-    
+
   }
   depends_on = [
     azurerm_resource_group.res-0,
@@ -250,11 +250,11 @@ resource "azurerm_network_interface" "fgtvm2port1" {
 }
 
 resource "azurerm_network_interface" "fgtvm2port2" {
-  enable_accelerated_networking = true
-  enable_ip_forwarding          = true
-  location                      = var.location
-  name                          = "FGT-Customer02-Nic2"
-  resource_group_name           = azurerm_resource_group.res-0.name
+  accelerated_networking_enabled = true
+  ip_forwarding_enabled          = true
+  location                       = var.location
+  name                           = "FGT-Customer02-Nic2"
+  resource_group_name            = azurerm_resource_group.res-0.name
   tags = {
     Source = "terraform"
   }
@@ -264,7 +264,7 @@ resource "azurerm_network_interface" "fgtvm2port2" {
     private_ip_address_allocation = "Static"
     private_ip_address            = var.fgtvm2port2
 
-    
+
   }
   depends_on = [
     azurerm_resource_group.res-0,
